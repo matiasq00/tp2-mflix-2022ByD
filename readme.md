@@ -13,18 +13,18 @@ Luego de abrir el correo encuentras un mail de tu Líder Técnico con tu primera
 > 2. Realizar un clone del presente repositorio
 > 3. Instalar las dependencias
 > 4. Solicitar las variables de entorno que contiene la conexion string a mongodb (antes de preguntar, revisa el chat, seguro estan ahí)
-> 5. Ejecutar el servidor web de la api REST con el script de npm start-dev si queres trabajar con nodemon (tendrías que instalarlo) con start solo tambien funciona. 
-> El backend se conecta con una base de datos Mongodb en la cual se encuentra la base de datos **sample_supplies** con una collection llamada **sales**, ahí se encuentran aprox. 500 ventas de nuestro cliente.
-> 6. Proba el endpoint que ya se encuentra desarrollado: /api/sales debería retornar un json con 500 ventas. Sí por algun motivo no llegase a funcionar, solicita asistencia. 
+> 5. Ejecutar el servidor web de la api REST con el script de npm start-dev si queres trabajar con nodemon (tendrías que instalarlo) con start solo, tambien funciona. 
+> El backend se conecta con una base de datos Mongodb en la cual se encuentra la base de datos **sample_mflix** con una collection llamada **movies**, ahí se encuentran aprox. 23.000 películas.
+> 6. Proba el endpoint que ya se encuentra desarrollado: /api/movies debería retornar un json con 23.000 películas. Sin embargo te aconsejo que uses el paginado que tiene para probar (mira la definición del end-point). Sí por algun motivo no llegase a funcionar, solicita asistencia. 
 
 > ### TUS TAREAS SON LAS SIGUIENTES POR ORDEN DE PRIORIDAD
-> 1. Necesitamos un endpoint que nos devuelva una venta particular por _id
-> 2. Necesitamos un endpoint que nos permita listar las ventas filtradas por el metodo de compra (purchaseMethod), que pueden ser: Phone, Online, In store... 
-> 3. Necesitamos un endpoint que nos devuelva las compras de un cliente **customner** por email
-> 4. Necesitamos encontrar los clientes insatisfechos (con menor a 3 de satisfacción)
+> 1. Necesitamos un endpoint que nos devuelva una película (**movie**) particular por _id
+> 2. Los desarrolladores de frontend estan haciendo un pantalla para mostrar solo las películas ganadoras de al menos un premio. Necesitamos que desarrolles el endpoint respectivo. Solo necesitan el titulo, el poster y el resumen de la reseña (**plot**) 
+> 3. Necesitamos un endpoint que nos devuelva las peliculas filtradas por idioma. Toma en cuenta que estas películas pueden ser muchas y el desarrollador de frontend va mostrarlas paginadas. 
+> 4. Hay un calificación propia de las peliculas denomidada [tomatoes](https://es.wikipedia.org/wiki/Rotten_Tomatoes) la base de datos de peliculas actual solo otorga el puntaje **fresh** en determinadas condiciones (no interesa en este caso). El equipo de frontend esta desarrollando un ranking basado en esta calificación. Te piden desarrollar un endpoint que devuelva las películas ordenadas de mayor a menor considerando el puntaje **fresh** 
 
 > ### SI TE DA EL TIEMPO DAME UN MANO TAMBIEN EN...
-> 5. Generar un endpoint para obtener el importe total de la venta por **localizacion**
+> 5. En otra collection se encuentran los comentarios de usuarios de las peliculas **comments** y en otra collection los usuarios **users**. Mediante el _id de usuario se requiere devolver un listado de objetos que contengan los comentarios de ese usuario juntamente con el titulo y el poster de la película. 
 >
 > Desde ya muchas gracias por la colaboración! 😉 como te comente en la entrevista soy muy detallista en la prolijidad del codigo y la performance cada detalle cuenta, no me gusta mucho las cosas fuera del estandar de APIREST, sin embargo si no estas seguro, es mejor que lo resuelvas como puedas y me dejes notas en el readme.md del repo, para que yo pueda probar.
 
@@ -37,10 +37,8 @@ Si ya terminaste o son las 10:00 asegurate de seguir los siguientes pasos para l
 3. Realizar un pull request a mi repositorio
 
 
-
-
 ## Listado de endpoint
-- /api/sales
+-GET /api/movies?pageSize=[pageSize]&page=[page]
 
 
 
